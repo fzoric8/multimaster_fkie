@@ -46,7 +46,7 @@ Let's say we have 2 PCs, one is PC A, and another one is PC B.
 
 First we have to configure our `ROS_MASTER_URI` and `ROS_HOSTNAME` **or** `ROS_IP`. 
 
-**If you have added IP adresses of PC A and PC B to /etc/hosts, you can use symbolic adresses. Otherwise, use IP. **
+**If you have added IP adresses of PC A and PC B to /etc/hosts, you can use symbolic adresses. Otherwise, use IP.**
 
 Example of `/etc/hosts`: 
 
