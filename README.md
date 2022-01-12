@@ -100,6 +100,12 @@ rosrun fkie_master_sync master_sync _log_level:=DEBUG _sync_topics:=["/topic_nam
 
 There are also other params which could be configurable, and you can set them in corresponding launch files. 
 
+## HMI 
+
+```
+        <rosparam param="sync_topics">["/uav/odometry", "/uav/rod_camera/image_raw/compressed", "/stickman_compressed_ctl_area"]</rosparam>
+```
+
 
 ## Documentation
 
