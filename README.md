@@ -38,6 +38,69 @@ Then build all packages:
 catkin build fkie_multimaster
 ```
 
+## How to run it? 
+
+In order to run it, use following commands and following order of them. 
+
+Let's say we have 2 PCs, one is PC A, and another one is PC B. 
+
+First we have to configure our `ROS_MASTER_URI` and `ROS_HOSTNAME` **or** `ROS_IP`. 
+
+**If you have added IP adresses of PC A and PC B to /etc/hosts, you can use symbolic adresses. Otherwise, use IP. **
+
+Example of `/etc/hosts`: 
+
+```
+127.0.0.1 localhost 
+192.168.1.a pc_a
+192.168.1.b pc_b
+```
+
+Make sure PC A and PC B are on same subnet (e.g 192.168.x.a and 192.168.x.b). 
+
+If you have added names of IP adresses to your `/etc/hosts` add following to `~/.bashrc` and source it. 
+
+On PC A: 
+
+```
+export ROS_MASTER_URI=http://pc_a:11311
+export ROS_HOSTNAME=pc_a
+````
+
+On PC B: 
+
+```
+export ROS_MASTER_URI=http://pc_b:11311
+export ROS_HOSTNAME=pc_b
+````
+After that, run following sequence of commands on each PC: 
+
+```
+roscore 
+rosrun fkie_master_discovery master_discovery _log_level:=DEBUG   # discovers remote master 
+rosrun fkie_master_sync master_sync _log_level:=DEBUG             # sync nodes/topics/services
+```
+
+If you don't want to configure `/etc/hosts` file you can use `IP adresses directly as follows: 
+
+On PC A: 
+
+```
+export ROS_MASTER_URI=http://192.168.x.a:11311
+export ROS_IP=192.168.x.a
+```
+
+**Bear in mind that ROS_IP and ROS_HOSTNAME exclude each other, so use ROS_HOSTNAME or ROS_IP depending on /etc/hosts configuration!**
+
+You can sync only some topics by running following command on `PC_B` machine: 
+
+```
+rosrun fkie_master_sync master_sync _log_level:=DEBUG _sync_topics:=["/topic_namespace/topic1", "/topic_namespace/topic2"]
+```
+
+There are also other params which could be configurable, and you can set them in corresponding launch files. 
+
+
 ## Documentation
 
 * [multimaster\_fkie](http://fkie.github.io/multimaster_fkie)
