@@ -21,7 +21,7 @@ sync_nodes:
 ignore_topics:
 ignore_publishers:
 ignore_subscribers:
-sync_topics:
+sync_topics: 
 
 ignore_services:
   - /*get_loggers
