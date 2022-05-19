@@ -20,11 +20,11 @@
     <rosparam param="ignore_hosts">[]</rosparam>
 
     <!-- This list with names of ROS master to synchronize. Only this ROS master in this list will be synchronized. The ~ignore_hosts list is processed first. -->
-    <rosparam param="sync_hosts">[]</rosparam>
+    <rosparam param="sync_hosts">["jetson"]</rosparam>
 
     <!-- The list of nodes, which are to be ignored while a synchroniation. All their topics and services are ignored!
     These are defaults and cannot be removed: [/rosout, "/*master_sync* node", "remote /*master_discovery* node", "/*node_manager", /*zeroconf] -->
-    <rosparam param="ignore_nodes">[]</rosparam>
+    <rosparam param="ignore_nodes">["/standalone_nodelet", "/usb_camera", "Image2RTSPNodelet", "/Image2RTSPNodelet", "/camera/camera_nodelet_manager"]</rosparam>
 
     <!-- The list of nodes to synchronize. Only topics of this nodes are synchronized. The ~ignore_nodes, ~ignore_topics and ~ignore_services lists are processed first. -->
     <rosparam param="sync_nodes">[]</rosparam>
@@ -36,14 +36,14 @@
     <rosparam param="ignore_subscribers">[]</rosparam>
 
     <!-- The list of topics to synchronize. The ~ignore_nodes and ~ignore_topics lists are processed first. -->
-    <rosparam param="sync_topics">[]</rosparam>
+    <rosparam param="sync_topics">["/drone_1/mavros/local_position/pose", "/drone_1/mavros/setpoint_position/local", "/drone_1/mavros/state", "/drone_1/mavros/extended_state", "/cmd_left_wing_deg", "/cmd_right_wing_deg"]</rosparam>
 
     <!-- The list of services, which are to be ignored while a synchroniation. The ~ignore_nodes list is processed first.
     These are defaults and cannot be removed: ['/*get_loggers', '/*set_logger_level'] -->
     <rosparam param="ignore_services">[]</rosparam>
 
     <!-- The list of services to synchronize. The ~ignore_nodes and ~ignore_services lists are processed first. -->
-    <rosparam param="sync_services">[]</rosparam>
+    <rosparam param="sync_services">["/drone_1/mavros/set_mode", "/drone_1/mavros/cmd/arming"]</rosparam>
 
     <!-- This parameter is only regarded, if sync_nodes or sync_topics are set. In this case the subscribed and published topics are synchronized even if they are not in the sync_* list -->
     <param name="sync_topics_on_demand" value="False" />
