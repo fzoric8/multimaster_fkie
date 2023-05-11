@@ -9,14 +9,14 @@
 
 # A filter list with patterns. If this pattern merges to a node, 
 # topic or service it will not be synchronized.
-do_not_sync:
+do_not_sync: "camera"
 
 # The ignore_* lists will be processed first.
 ignore_hosts:
 sync_hosts:
 
 ignore_nodes:
-sync_nodes:
+sync_nodes: ["/hpe_ros_node", "/hawk1/vrpn_client"]
 
 ignore_topics:
 ignore_publishers:

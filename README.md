@@ -38,6 +38,11 @@ Then build all packages:
 catkin build fkie_multimaster
 ```
 
+## Branches
+
+Branch `hpe_ctl` contains multimaster config for the `HPE` control of the UAV. 
+Branch `uam_ctl` contains multimaster config for the simple control of the UAM. 
+
 ## Documentation
 
 * [multimaster\_fkie](http://fkie.github.io/multimaster_fkie)
