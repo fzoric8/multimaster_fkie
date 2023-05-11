@@ -16,7 +16,7 @@ ignore_hosts:
 sync_hosts:
 
 ignore_nodes:
-sync_nodes: ["/hpe_ros_node", "/hawk1/vrpn_client"]
+sync_nodes: ["/red_manipulator", "/red_manipulator/trajectory_republisher"]
 
 ignore_topics:
 ignore_publishers:
